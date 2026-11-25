@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Invitation — БАЙСАЛ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #08070c;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 15%, #4b197d55, transparent 55%),
+        radial-gradient(ellipse at 10% 80%, #b58a3422, transparent 45%),
+        radial-gradient(ellipse at 90% 70%, #7424b522, transparent 45%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, #fff8, transparent),
+        radial-gradient(2px 2px at 70% 20%, #d7b66b, transparent),
+        radial-gradient(2px 2px at 80% 75%, #fff8, transparent),
+        radial-gradient(1px 1px at 40% 80%, #fff9, transparent);
+    background-size: 300px 300px;
+    opacity: .5;
+    z-index: -1;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.invitation {
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+    padding: 65px 35px;
+    border: 1px solid #c9a45b77;
+    background: linear-gradient(145deg, #17121eeb, #09080df5);
+    box-shadow: 0 0 80px #a46bdf18,
+                inset 0 0 50px #c9a45b08;
+    position: relative;
+    animation: appear 1.5s ease;
+}
+
+.invitation::before,
+.invitation::after {
+    content: "✦";
+    position: absolute;
+    color: #d9b66b;
+    font-size: 25px;
+}
+
+.invitation::before {
+    top: 15px;
+    left: 20px;
+}
+
+.invitation::after {
+    bottom: 15px;
+    right: 20px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.top-label {
+    color: #d7b66b;
+    letter-spacing: 7px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 12vw, 105px);
+    font-weight: 700;
+    letter-spacing: 13px;
+    background: linear-gradient(
+        110deg,
+        #8c652d,
+        #fff0bb,
+        #c49a4e,
+        #fff1c5
+    );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 4s linear infinite;
+    text-shadow: 0 0 45px #d9b66b22;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.line {
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d7b66b,
+        transparent
+    );
+    margin: 25px auto;
+}
+
+.subtitle {
+    color: #c9a45b;
+    font-size: 12px;
+    letter-spacing: 6px;
+    font-weight: 600;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 7vw, 68px);
+    line-height: 1.05;
+    margin: 35px 0 20px;
+    font-weight: 600;
+}
+
+h1 span {
+    color: #d7b66b;
+    font-style: italic;
+}
+
+.description {
+    max-width: 570px;
+    margin: 0 auto;
+    color: #aaa2b2;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.birthday-icon {
+    font-size: 48px;
+    margin: 25px 0 5px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 40px auto;
+    max-width: 570px;
+}
+
+.detail {
+    padding: 23px 10px;
+    border: 1px solid #c9a45b44;
+    background: #ffffff05;
+}
+
+.detail .icon {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.detail h3 {
+    color: #d7b66b;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.detail p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.countdown-title {
+    color: #d7b66b;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 17px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.time {
+    min-width: 55px;
+}
+
+.time strong {
+    display: block;
+    font-size: 30px;
+    color: white;
+    font-weight: 300;
+}
+
+.time small {
+    color: #9e91aa;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.invite-text {
+    color: #d7c9a9;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 18px 42px;
+    background: linear-gradient(
+        110deg,
+        #a77c36,
+        #f2d99c,
+        #a77c36
+    );
+    background-size: 200%;
+    border: none;
+    color: #171018;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.button:hover {
+    background-position: right;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 35px #d7b66b44;
+}
+
+.footer {
+    margin-top: 45px;
+    color: #766c7e;
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+/* ОКНО РЕГИСТРАЦИИ */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #000c;
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeIn .3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 40px 30px;
+    background: linear-gradient(145deg, #201729, #0c0911);
+    border: 1px solid #c9a45b88;
+    box-shadow: 0 0 60px #a46bdf22;
+    animation: appear .4s ease;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #d7b66b;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    text-align: center;
+    color: #e5c77e;
+    margin-bottom: 10px;
+}
+
+.modal-subtitle {
+    text-align: center;
+    font-size: 11px;
+    color: #aaa2b2;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.form-label {
+    display: block;
+    color: #d7b66b;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin: 20px 0 10px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 14px;
+    background: #ffffff09;
+    border: 1px solid #c9a45b55;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #d7b66b;
+}
+
+.form-select option {
+    background: #17121e;
+    color: white;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 75px;
+}
+
+.choice-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.choice {
+    cursor: pointer;
+}
+
+.choice input {
+    display: none;
+}
+
+.choice span {
+    display: block;
+    padding: 15px 5px;
+    text-align: center;
+    border: 1px solid #c9a45b55;
+    color: #aaa2b2;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.choice input:checked + span {
+    background: #d7b66b18;
+    border-color: #d7b66b;
+    color: #e8cf91;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 17px;
+    border: none;
+    background: linear-gradient(
+        110deg,
+        #a77c36,
+        #f2d99c,
+        #a77c36
+    );
+    color: #171018;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit-button:hover {
+    box-shadow: 0 5px 25px #d7b66b55;
+}
+
+.success {
+    display: none;
+    text-align: center;
+    padding: 25px 5px;
+}
+
+.success h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    color: #e5c77e;
+    margin-bottom: 15px;
+}
+
+.success p {
+    color: #aaa2b2;
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+.success-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+@media(max-width: 550px) {
+    .invitation {
+        padding: 55px 18px;
+    }
+
+    .details {
+        gap: 10px;
+    }
+
+    .detail {
+        padding: 18px 5px;
+    }
+
+    .countdown {
+        gap: 12px;
+    }
+
+    .time strong {
+        font-size: 25px;
+    }
+
+    .modal-content {
+        padding: 40px 20px;
+    }
+
+    .brand {
+        letter-spacing: 7px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<main class="container">
+<section class="invitation">
+
+    <div class="top-label">BIRTHDAY CELEBRATION</div>
+
+    <div class="brand">БАЙСАЛ</div>
+
+    <div class="line"></div>
+
+    <div class="subtitle">ПРИГЛАШАЮ ВАС</div>
+
+    <div class="birthday-icon">🥂</div>
+
+    <h1>
+        ДЕНЬ РОЖДЕНИЯ.<br>
+        ВРЕМЯ <span>ПРАЗДНОВАТЬ!</span>
+    </h1>
+
+    <p class="description">
+        Дорогие друзья и коллеги!
+
+        Буду рад разделить с вами этот особенный день.
+        Приглашаю вас провести незабываемый вечер в приятной
+        компании, насладиться музыкой, общением и отличным настроением.
+
+        Пусть этот вечер подарит нам яркие эмоции,
+        искренние улыбки и прекрасные воспоминания!
+    </p>
+
+    <div class="details">
+
+        <div class="detail">
+            <div class="icon">📅</div>
+            <h3>ДАТА</h3>
+            <p>28 ноября 2026</p>
+        </div>
+
+        <div class="detail">
+            <div class="icon">🕗</div>
+            <h3>НАЧАЛО</h3>
+            <p>20:00</p>
+        </div>
+
+        <div class="detail" style="grid-column:1 / -1">
+            <div class="icon">📍</div>
+            <h3>МЕСТО ВСТРЕЧИ</h3>
+            <p>Karaoke Lounge, Алматы</p>
+        </div>
+
+    </div>
+
+    <div class="countdown-title">
+        ДО ПРАЗДНИКА ОСТАЛОСЬ
+    </div>
+
+    <div class="countdown">
+        <div class="time">
+            <strong id="days">00</strong>
+            <small>ДНЕЙ</small>
+        </div>
+
+        <div class="time">
+            <strong id="hours">00</strong>
+            <small>ЧАСОВ</small>
+        </div>
+
+        <div class="time">
+            <strong id="minutes">00</strong>
+            <small>МИНУТ</small>
+        </div>
+
+        <div class="time">
+            <strong id="seconds">00</strong>
+            <small>СЕКУНД</small>
+        </div>
+    </div>
+
+    <div class="invite-text">
+        Буду искренне рад видеть вас среди гостей!
+    </div>
+
+    <button class="button" onclick="openModal()">
+        ПОДТВЕРДИТЬ УЧАСТИЕ ✨
+    </button>
+
+    <div class="footer">
+        БАЙСАЛ · ПРАЗДНИК · ДРУЗЬЯ · ВПЕЧАТЛЕНИЯ
+    </div>
+
+</section>
+</main>
+
+<!-- РЕГИСТРАЦИЯ -->
+
+<div class="modal" id="registrationModal">
+
+    <div class="modal-content">
+
+        <button class="close" onclick="closeModal()">×</button>
+
+        <div id="registrationForm">
+
+            <h2 class="modal-title">Вы с нами?</h2>
+
+            <p class="modal-subtitle">
+                Будем рады видеть вас на празднике!
+                Пожалуйста, оставьте свой ответ.
+            </p>
+
+            <form id="guestForm">
+
+                <label class="form-label">ВАШЕ ФИО *</label>
+
+                <input
+                    class="form-input"
+                    type="text"
+                    id="guestName"
+                    placeholder="Иванов Иван Иванович"
+                    required
+                    maxlength="100"
+                >
+
+                <label class="form-label">ВАШ ОТВЕТ *</label>
+
+                <div class="choice-group">
+
+                    <label class="choice">
+                        <input
+                            type="radio"
+                            name="attendance"
+                            value="Приду"
+                            required
+                        >
+                        <span>🥂 Я ПРИДУ!</span>
+                    </label>
+
+                    <label class="choice">
+                        <input
+                            type="radio"
+                            name="attendance"
+                            value="Не приду"
+                        >
+                        <span>😔 Не смогу</span>
+                    </label>
+
+                </div>
+
+                <div id="guestCountBlock" style="display:none">
+
+                    <label class="form-label">
+                        КОЛИЧЕСТВО ГОСТЕЙ (ВКЛЮЧАЯ ВАС)
+                    </label>
+
+                    <select class="form-select" id="guestCount">
+                        <option value="1">1 человек</option>
+                        <option value="2">2 человека</option>
+                        <option value="3">3 человека</option>
+                        <option value="4">4 человека</option>
+                        <option value="5">5 человек</option>
+                    </select>
+
+                </div>
+
+                <label class="form-label">
+                    КОММЕНТАРИЙ (НЕОБЯЗАТЕЛЬНО)
+                </label>
+
+                <textarea
+                    class="form-textarea"
+                    id="guestComment"
+                    placeholder="Можете оставить сообщение..."
+                    maxlength="500"
+                ></textarea>
+
+                <button class="submit-button" type="submit">
+                    ОТПРАВИТЬ ОТВЕТ ✦
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="success" id="successMessage">
+
+            <div class="success-icon">🥂</div>
+
+            <h2 id="successTitle">Спасибо за ответ!</h2>
+
+            <p id="successText"></p>
+
+            <button class="submit-button" onclick="closeModal()">
+                ЗАМЕЧАТЕЛЬНО!
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ПОДКЛЮЧЕНИЕ SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+// НАСТРОЙКИ SUPABASE
+
+const SUPABASE_URL = "https://qetbauqaqmbygbhotppn.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_2M5sHxsz_XQaZovkBlK_Yg_XYeaOSt1";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+// ДАТА МЕРОПРИЯТИЯ
+
+const eventDate = new Date("2026-11-28T20:00:00+05:00");
+
+function updateCountdown() {
+
+    const diff = eventDate - new Date();
+
+    if (diff <= 0) {
+        document.querySelector(".countdown").innerHTML =
+            "ВРЕМЯ ПРАЗДНОВАТЬ! 🥂";
+        return;
+    }
+
+    document.getElementById("days").textContent =
+        String(Math.floor(diff / 86400000)).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(Math.floor(diff / 3600000) % 24).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(Math.floor(diff / 60000) % 60).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(Math.floor(diff / 1000) % 60).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+// ОКНО РЕГИСТРАЦИИ
+
+function openModal() {
+    document.getElementById("registrationModal")
+        .classList.add("active");
+}
+
+function closeModal() {
+    document.getElementById("registrationModal")
+        .classList.remove("active");
+}
+
+document.getElementById("registrationModal")
+.addEventListener("click", function(e) {
+    if (e.target === this) closeModal();
+});
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeModal();
+});
+
+
+// ВЫБОР КОЛИЧЕСТВА ГОСТЕЙ
+
+document.querySelectorAll('input[name="attendance"]')
+.forEach(radio => {
+
+    radio.addEventListener("change", function() {
+
+        document.getElementById("guestCountBlock").style.display =
+            this.value === "Приду" ? "block" : "none";
+
+    });
+
+});
+
+
+// СОХРАНЕНИЕ РЕГИСТРАЦИИ В SUPABASE
+
+document.getElementById("guestForm")
+.addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const submitButton = this.querySelector(".submit-button");
+
+    const name = document.getElementById("guestName")
+        .value.trim();
+
+    const selectedAttendance = document.querySelector(
+        'input[name="attendance"]:checked'
+    );
+
+    if (!selectedAttendance || name.length < 2) {
+        alert("Пожалуйста, укажите ФИО и выберите ответ.");
+        return;
+    }
+
+    const attendance = selectedAttendance.value;
+
+    const guests = attendance === "Приду"
+        ? Number(document.getElementById("guestCount").value)
+        : 0;
+
+    const comment = document.getElementById("guestComment")
+        .value.trim();
+
+    const registration = {
+        name: name,
+        attendance: attendance,
+        guest_count: guests,
+        comment: comment
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = "ОТПРАВКА...";
+
+    try {
+
+        const { error } = await supabaseClient
+            .from("baisal_guests")
+            .insert([registration]);
+
+        if (error) {
+            throw error;
+        }
+
+        document.getElementById("registrationForm")
+            .style.display = "none";
+
+        document.getElementById("successMessage")
+            .style.display = "block";
+
+        if (attendance === "Приду") {
+
+            document.getElementById("successTitle")
+                .textContent = "До встречи! 🥂";
+
+            document.getElementById("successText")
+                .textContent =
+                "Ваш ответ успешно сохранён! " +
+                "Количество гостей: " + guests +
+                ". Будем ждать вас на празднике!";
+
+        } else {
+
+            document.getElementById("successTitle")
+                .textContent = "Спасибо за ответ! ❤️";
+
+            document.getElementById("successText")
+                .textContent =
+                "Ваш ответ успешно сохранён. " +
+                "Надеемся увидеться в другой раз!";
+
+        }
+
+        this.reset();
+
+        document.getElementById("guestCountBlock")
+            .style.display = "none";
+
+    } catch (error) {
+
+        console.error("Supabase error:", error);
+
+        alert(
+            "Не удалось отправить регистрацию. " +
+            "Пожалуйста, попробуйте ещё раз."
+        );
+
+    } finally {
+
+        submitButton.disabled = false;
+        submitButton.textContent = "ОТПРАВИТЬ ОТВЕТ ✦";
+
+    }
+
+});
+
+</script>
+
+
+</body>
+</html>
